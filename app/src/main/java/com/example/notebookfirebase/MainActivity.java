@@ -15,6 +15,7 @@ import com.example.notebookfirebase.adapter.NoteAdapter;
 import com.example.notebookfirebase.model.Note;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
@@ -78,6 +79,16 @@ public class MainActivity extends AppCompatActivity {
                 adapter.deleteItem(viewHolder.getAdapterPosition());
             }
         }).attachToRecyclerView(rvNotes);
+
+        adapter.setOnItemClickListener(new NoteAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(DocumentSnapshot documentSnapshot, int position) {
+                Note note = documentSnapshot.toObject(Note.class);
+                String id = documentSnapshot.getId();
+                Toast.makeText(MainActivity.this, "Position: " + position + "\nId: " + id,
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override
