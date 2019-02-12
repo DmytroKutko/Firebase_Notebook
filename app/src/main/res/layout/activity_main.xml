@@ -20,8 +20,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:clickable="true"
+        android:focusable="true"
         app:layout_anchor="@+id/rvNotes"
         app:layout_anchorGravity="bottom|end"
-        app:srcCompat="@drawable/ic_add"
-        android:focusable="true" />
+        app:srcCompat="@drawable/ic_add" />
 </android.support.design.widget.CoordinatorLayout>

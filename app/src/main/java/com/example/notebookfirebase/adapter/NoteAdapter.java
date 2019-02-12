@@ -23,7 +23,7 @@ public class NoteAdapter extends FirestoreRecyclerAdapter<Note, NoteAdapter.Note
     @Override
     protected void onBindViewHolder(@NonNull NoteHolder holder, int position, @NonNull Note model) {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd\nHH:mm:ss");
-        String date = format.format(model.getUnixTime());
+        String date = format.format(model.getUnixTime() + 2 * 60 * 60 * 1000);
         holder.tvTitle.setText(model.getTitle());
         holder.tvDate.setText(date);
         holder.tvDescription.setText(model.getDescription());
