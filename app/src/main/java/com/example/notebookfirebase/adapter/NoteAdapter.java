@@ -29,6 +29,11 @@ public class NoteAdapter extends FirestoreRecyclerAdapter<Note, NoteAdapter.Note
         holder.tvDescription.setText(model.getDescription());
     }
 
+    public void deleteItem(int position) {
+        getSnapshots().getSnapshot(position).getReference().delete();
+
+    }
+
     @NonNull
     @Override
     public NoteHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
